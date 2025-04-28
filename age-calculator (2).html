@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #card-body{
+            width: 500px;
+            height: 400px;
+            background-color: aqua;
+            margin: 100px auto;
+        }
+        #card-body h2{
+            text-align: center;
+            background-color: darkblue;
+            color: whitesmoke;
+            text-shadow: 5px 5px 10px red;
+            padding: 10px;
+        }
+        #card-body h4{
+            text-align: center;
+            background-color: yellow;
+            color: black;
+            margin: 10px 0 10px 0;
+            padding: 10px;
+        }
+        #body{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+        #div1 input{
+            width: 120px;
+            margin: 10px;
+            border: none;
+            outline: none;
+            height: 30px;
+            text-align: center;
+        }
+        #div2 input{
+            width: 120px;
+            margin: 10px;
+            border: none;
+            outline: none;
+            height: 30px;
+            text-align: center;
+        }
+        #div3 input{
+            width: 120px;
+            margin: 10px;
+            border: none;
+            outline: none;
+            height: 30px;
+            text-align: center;
+        }
+        label{
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        #bt{
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            outline: none;
+            border: none;
+            background-color: green;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            margin: 15px 0 0 0;
+            display: block;
+        }
+        #bt:hover{
+            background-color: red;
+            transition: all 1s ease;
+            transform: scale(0.9);
+        }
+        #result{
+            width: 98%;
+            height: 100px;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="card-body">
+        <h2>Age Calculator</h2>
+        <h4>Enter You Age</h4>
+        <div id="body">
+            <div id="div1">
+                <label>Date</label><br>
+            <input type="text" placeholder="Enter Date " required, maxlength="2" minlength="1" id="date"></div>
+            <div id="div2">
+            <label>Months</label><br>
+             <input type="text" placeholder="Enter Months" required maxlength="2" minlength="1" id="month"></div>
+             <div id="div3">
+             <label>Year</label><br>
+             <input type="text" placeholder="Enter Year" id="year"></div>
+             
+        </div>
+        <div id="bt"><button id="bt" onclick="age()">Submit</button><br>
+            <hr>
+
+        </div><br>
+        <div id="result">
+            <h5>Result :- </h5>
+
+        </div>
+
+    </div>
+    <script>
+        var d1=document.getElementById("date").value;
+        var m1=document.getElementById("month").value;
+        var y1=document.getElementById("year").value;
+        function age(){
+            var d1=document.getElementById("date").value;
+        var m1=document.getElementById("month").value;
+        var y1=document.getElementById("year").value;
+        var date = new Date();
+        var d2 = date.getDate();
+        var m2 = 1+date.getMonth();
+        var y2 = date.getFullYear();
+        var month=[31,28,31,30,31,30,31,31,30,31,30,31];
+        if(d1>d2){
+            d2=d2+month[m2-1];
+            m2=m2-1;
+        }
+        if(m1>m2){
+            m2=m2+12;
+            y2=y2-1;
+        }
+        
+        var date = d2-d1;
+        var month = m2-m1;
+        var year = y2-y1;
+ document.querySelector("#result").innerHTML='Your age is :- '+year+' Years  '+month+' Months and '+date+' Days <br><br><br> <hr> <h5> This project Design By ZAKIR KHAN </h5>';
+ if(d1=='',m1=='',y1==''){
+    document.querySelector("#result").innerHTML='Please Enter your Date of Birth';
+
+ }
+ 
+        }
+    </script>
+</body>
+</html>
